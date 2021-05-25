@@ -1,4 +1,3 @@
-package uebung6;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,6 +11,7 @@ public class birthday {
 	public static void main(String args[]) {
 
 		birthday BD = new birthday();
+		JD jd = new JD();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
 
@@ -22,28 +22,15 @@ public class birthday {
 			Date birthdate = df.parse(birthdayString);
 
 			// Substrings: Day, Month, Year
+			String[] subArray = jd.toSubstring(birthdayString);
+			int[] dateInts = jd.parseToInt(subArray);
+			
+			/*Zwischenspeicherung: Geburtstag (Julian)
+						// ist in JD.dateToJulian();*/
+			
+			double bd = jd.dateToJulian(dateInts);
 
-			String dsub = birthdayString.substring(0, 2);
-			// System.out.println(dsub);
-			String msub = birthdayString.substring(3, 5);
-			// System.out.println(msub);
-			String ysub = birthdayString.substring(6, 10);
-			// System.out.println(ysub);
-
-			// Parsing to INT
-			int dint = Integer.parseInt(dsub);
-			// System.out.println(dint);
-
-			int mint = Integer.parseInt(msub);
-			// System.out.println(mint);
-
-			int yint = Integer.parseInt(ysub);
-			// System.out.println(yint);
-
-			double bd = JD.dateToJulian(yint, mint, dint);
-
-			// Zwischenspeicherung: Geburtstag (Julian)
-			// ist in JD.dateToJulian();
+			
 
 			// heutiges Julian Date
 
@@ -52,23 +39,11 @@ public class birthday {
 			// Parse the date
 			Date date = df.parse(dateString);
 
-			// Substrings: Day, Month, Year
+			String[] t_subArray = jd.toSubstring(dateString);
+			int[] t_dateInts = jd.parseToInt(t_subArray);
+			
 
-			String t_dsub = dateString.substring(0, 2);
-			String t_msub = dateString.substring(3, 5);
-			String t_ysub = dateString.substring(6, 10);
-
-			// Parsing to INT
-			int t_dint = Integer.parseInt(t_dsub);
-			// System.out.println(t_dint);
-
-			int t_mint = Integer.parseInt(t_msub);
-			// System.out.println(t_mint);
-
-			int t_yint = Integer.parseInt(t_ysub);
-			// System.out.println(t_yint);
-
-			double td = JD.dateToJulian(t_yint, t_mint, t_dint);
+			double td = jd.dateToJulian(t_dateInts);
 
 			// heutiges Julian Date - Geburtstag = Alter in Tagen
 
@@ -86,7 +61,7 @@ public class birthday {
 
 			if (dayOfWeek == 1) {
 				System.out.println("Du bist an einem Sonntag geboren.");
-				System.out.println("Glückwunsch, Sonntskind!");
+				System.out.println("Glückwunsch, Sonntagskind!");
 			}
 			if (dayOfWeek == 2) {
 				System.out.println("Du bist an einem Montag geboren.");
@@ -110,9 +85,9 @@ public class birthday {
 
 			// is today their birthday? write out a special message.
 			
-			if (dint == t_dint && mint == t_mint) {
-				System.out.println("Happy Birthday, du Bitch/Huso!");
-			}
+			BD.isBirthday(dateInts, t_dateInts);
+				
+			
 			 
 			// If you have lived a number of days that is divisible by 100, print a special
 			// message!
@@ -124,4 +99,15 @@ public class birthday {
 
 		}
 	}
+	
+	public boolean isBirthday(int[] dateInts, int[] t_dateInts) {
+		
+		if(dateInts[0] == t_dateInts[0] && dateInts[1] == t_dateInts[1]) {
+			
+			System.out.println("Happy birthday, dear User!!!");
+			return true;
+		}
+		
+		else return false;
+		}
 }

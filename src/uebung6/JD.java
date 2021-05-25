@@ -1,5 +1,3 @@
-package uebung6;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
@@ -24,47 +22,63 @@ public class JD {
 			String dateString = reader.readLine();
 			// Parse the date
 			Date date = df.parse(dateString);
-
-			// Substrings: Day, Month, Year
-
-			String dsub = dateString.substring(0, 2);
-			// System.out.println(dsub);
-			String msub = dateString.substring(3, 5);
-			// System.out.println(msub);
-			String ysub = dateString.substring(6, 10);
-			// System.out.println(ysub);
-
+			
+			String[] subArray = jd.toSubstring(dateString);
 			// Parsing to INT
-			int dint = Integer.parseInt(dsub);
-			System.out.println(dint);
-
-			int mint = Integer.parseInt(msub);
-			System.out.println(mint);
-
-			int yint = Integer.parseInt(ysub);
-			System.out.println(yint);
-
+			int[] dateInts = jd.parseToInt(subArray);
+			
+			
 			System.out.println("Originaldatum: " + dateString);
-			// System.out.println("Nach dem Parsen: " + date.toString());
-
-			System.out.println(jd.dateToJulian(yint, mint, dint));
+			
+			System.out.println(jd.dateToJulian(dateInts));
+		
 		} catch (Exception e) {
 
 		}
 
 	}
 
-	public static double dateToJulian(int yint, int mint, int dint) {
-		int year = yint;
-		int month = mint;
-		int day = dint;
-
+	public double dateToJulian(int[] dateInts) {
+		
+		int day = dateInts[0];
+		int month = dateInts[1];
+		int year = dateInts[2];
+		
 		double extra = (100.0 * year) + month - 190002.5;
 		double result = (367.0 * year) - (Math.floor(7.0 * (year + Math.floor((month + 9.0) / 12.0)) / 4.0))
 				+ Math.floor((275.0 * month) / 9.0) + day + 1721013.5 - ((0.5 * extra) / Math.abs(extra)) + 0.5;
 		return result;
 		
+	}
+	
+	public String[] toSubstring(String dateString) {
+		
+		String[] subArray = new String[3];
+		
+		// Substrings: Day, Month, Year
+		subArray[0] = dateString.substring(0, 2);
 
+		subArray[1] = dateString.substring(3, 5);
+					
+		subArray[2] = dateString.substring(6, 10);
+		
+		//return array of substrings
+		return subArray;
+					
+	}
+	
+	public int[] parseToInt(String[] subArray) {
+		
+		int[] dateInts = new int[3];
+		
+		dateInts[0] = Integer.parseInt(subArray[0]);
+		
+		dateInts[1] = Integer.parseInt(subArray[1]);
+		
+		dateInts[2] = Integer.parseInt(subArray[2]);
+		
+		return dateInts;
+		
 	}
 
 }
