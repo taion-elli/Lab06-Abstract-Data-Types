@@ -19,19 +19,10 @@ public class JulianDate {
 	}
 	
 
-	public JulianDate(int year, int month, int date) {
-		this(year, month, date);
+	public JulianDate(int day, int month, int year) {
+		this(day, month, year);
 	}
 
-	/*
-	 * public JulianDate (int year, int month, int date, int hrs) { this(year,
-	 * month, date, hrs, 0, 0); }
-	 * 
-	 * public JulianDate (int year, int month, int date, int hrs, int min) { }
-	 * 
-	 * public JulianDate (int year, int month, int date, int hrs, int min, int sec)
-	 * { }
-	 */
 
 	public JulianDate(LocalDateTime now) {
 		// TODO Auto-generated constructor stub
@@ -43,12 +34,16 @@ public class JulianDate {
 		return 0d;
 	}
 
-	/*
-	 * public double daysBetween(double otherDate) { return 0d; }
-	 */
+	public double tomorrow(LocalDateTime otherDate) {
+		return 0d;
+	}
+
+	public double yesterday(LocalDateTime otherDate) {
+		return 0d;
+	}
+
 
 // getters & setters
-
 
 
 	public LocalDate getGregorianDate() {
@@ -56,23 +51,25 @@ public class JulianDate {
 		return gd;
 	}
 
-	public int getYear() {
+	public int getDay() {
 		LocalDate gd = LocalDate.now();
-		int year  = gd.getYear();
-		return year;
+		int day  = gd.getDayOfMonth();
+		return day;
 	}
-
+	
 	public int getMonth() {
 		LocalDate gd = LocalDate.now();
 		int month  = gd.getMonthValue();
 		return month;
 	}
 	
-	public int getDay() {
+	
+	public int getYear() {
 		LocalDate gd = LocalDate.now();
-		int day  = gd.getDayOfMonth();
-		return day;
+		int year  = gd.getYear();
+		return year;
 	}
+
 	
 	public double getJulianDate() {
 		
@@ -88,8 +85,5 @@ public class JulianDate {
 			return julianDate;
 		}
 
-	/*public int getAge() {
-		return birthday.LocalDateTime.now();
-	}*/
 
 }
