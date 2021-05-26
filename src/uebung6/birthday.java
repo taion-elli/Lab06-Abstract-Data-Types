@@ -3,6 +3,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -34,10 +36,10 @@ public class birthday {
 
 			// heutiges Julian Date
 
-			System.out.print("Gib das heutige Datum ein: (dd/mm/yyyy ): ");
-			String dateString = reader.readLine();
-			// Parse the date
-			Date date = df.parse(dateString);
+			LocalDateTime today = LocalDateTime.now();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			
+			String dateString = today.format(formatter);
 
 			String[] t_subArray = jd.toSubstring(dateString);
 			int[] t_dateInts = jd.parseToInt(t_subArray);
