@@ -1,4 +1,3 @@
-package uebung6;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,11 +8,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
-public class birthday {
+public class Birthday {
 
 	public static void main(String args[]) {
 
-		birthday BD = new birthday();
+		Birthday BD = new Birthday();
 		JD jd = new JD();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
@@ -57,10 +56,12 @@ public class birthday {
 			// weekday they were born on + sunday's child
 			// Jahr in y (letzten zwei zahlen) und c(ersten zwei zahlen) zerlegen
 			// System.out.println(dayOfWeek);
-
+			
+			
 			Calendar c = Calendar.getInstance();
 			c.setTime(birthdate);
 			int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+			
 
 			if (dayOfWeek == 1) {
 				System.out.println("Du bist an einem Sonntag geboren.");
@@ -95,7 +96,8 @@ public class birthday {
 			// If you have lived a number of days that is divisible by 100, print a special
 			// message!
 			
-			if (diff%100==0) {System.out.println("Schon wieder 100 Tage älter!");}
+	        
+			if (diff%100==0) {System.out.println("Congrats, you're special.");}
 
 		} catch (Exception e) {
 
@@ -106,7 +108,7 @@ public class birthday {
 		
 		if(dateInts[0] == t_dateInts[0] && dateInts[1] == t_dateInts[1]) {
 			
-			System.out.println("Alles Gute zum Geburtstag!");
+			System.out.println("Happy birthday, dear User!!!");
 			return true;
 		}
 		
