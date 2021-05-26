@@ -23,8 +23,8 @@ public class MetricDate extends JD {
 	 */
  
 	// JULIAN ZU METRISCH
-	public void convertJuliantoMetric() {
-		//public static void main(String args[]) {
+	//public void convertJuliantoMetric() {
+		public static void main(String args[]) {
 			JD jd = new JD();
 			System.out.println("Bitte gib das Julian Date ein, dass du umrechnen möchtest:");
 			
@@ -49,10 +49,9 @@ public class MetricDate extends JD {
 			double mweek = diff/10;
 			
 			// Datum
-			double my = jdi%1000;
-			double mm = my/100;
-			double mw = mm/10;
-			double md = mw*10;
+			double my = jdi/1000;
+			double mm = (jdi%1000)/100;
+			double md = (jdi%100);
 			
 			int imy = (int)my;
 			int imm = (int)mm;
@@ -66,8 +65,7 @@ public class MetricDate extends JD {
 			
 			System.out.println(jdi + " würde im metrischen Kalender " + imd + "/" + imm + "/" + imy + " entsprechen.");
 			System.out.println("Du bist also (Stand: jetzt) genau " + myear + " metrische Jahre alt.");
-			System.out.println("Beziehungsweise " + mmonth + " Monate.");
-			System.out.println("Oder auch insgesamt" + mweek + " Wochen.");
+
 
 		
 		} catch (Exception e) {
