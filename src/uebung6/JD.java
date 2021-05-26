@@ -10,7 +10,7 @@ public class JD {
 	public JD() {
 	}
 
-	public static void main(String args[]) {
+	public static void main(String args[])  {
 
 		JD jd = new JD();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
