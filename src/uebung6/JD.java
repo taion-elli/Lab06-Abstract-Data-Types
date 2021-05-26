@@ -1,9 +1,8 @@
+package uebung6;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
 
 public class JD {
@@ -28,9 +27,9 @@ public class JD {
 			int[] dateInts = jd.parseToInt(subArray);
 			
 			
-			System.out.println("Originaldatum: " + dateString);
+			System.out.println("Dein Datum: " + dateString);
 			
-			System.out.println(jd.dateToJulian(dateInts));
+			System.out.println("Umwandlung: " + jd.dateToJulian(dateInts));
 		
 		} catch (Exception e) {
 
