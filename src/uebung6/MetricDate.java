@@ -1,6 +1,7 @@
 package uebung6;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -22,9 +23,43 @@ public class MetricDate extends JD {
 	 * 
 	 */
  
+	public static void main(String args[]) {
+		
+		MetricDate metricdate = new MetricDate();
+		
+		
+		BufferedReader auswahl = new BufferedReader ( new InputStreamReader ( System.in ) );
+	    String methodeString = null;
+	    
+	    System.out.println("Was soll umgewandelt werden?");
+	    System.out.println("1: Julian zu Metrisch");
+	    System.out.println("2: Metrisch zu Julian");
+	    
+	    
+		try {
+			methodeString = auswahl.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	    int x = Integer.parseInt(methodeString);
+	   
+	    if (x==1) {metricdate.convertJuliantoMetric();}
+	    
+	    if (x==2) {metricdate.convertMetrictoJulian();}
+	    
+	    if (x!=1 && x!=2) {System.out.println("Keine gültige Auswahl!");}
+		
+		
+	}
+	
+	
+	
+	
 	// JULIAN ZU METRISCH
-	//public void convertJuliantoMetric() {
-		public static void main(String args[]) {
+	public void convertJuliantoMetric() {
 			JD jd = new JD();
 			System.out.println("Bitte gib das Julian Date ein, dass du umrechnen möchtest:");
 			
