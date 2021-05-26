@@ -1,3 +1,4 @@
+package uebung6;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -94,8 +95,7 @@ public class birthday {
 			// If you have lived a number of days that is divisible by 100, print a special
 			// message!
 			
-	        double diff2 = 21100;
-			if (diff2%100==0) {System.out.println("Congrats, you're special.");}
+			if (diff%100==0) {System.out.println("Schon wieder 100 Tage älter!");}
 
 		} catch (Exception e) {
 
@@ -106,7 +106,7 @@ public class birthday {
 		
 		if(dateInts[0] == t_dateInts[0] && dateInts[1] == t_dateInts[1]) {
 			
-			System.out.println("Happy birthday, dear User!!!");
+			System.out.println("Alles Gute zum Geburtstag!");
 			return true;
 		}
 		
